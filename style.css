@@ -27,9 +27,29 @@ body {
     height: 300px;
     border-radius: 50%;
     position: absolute;
-    background-color: rgb(212, 18, 18);
+    /* background-color: rgb(212, 18, 18); */
+    background-color: white;
     transition: 0.3s;
+    overflow: hidden;
 }
+
+.back::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 290px;
+    height: 290px;
+    background-color: rgb(212, 18, 18);
+    clip-path: circle(50% at 50% 50%);
+    transition: 0.15s;
+}
+
+.can:hover > .back::before {
+    opacity: 0;
+    visibility: hidden;
+}
+
 
 .can:hover > .back {
     background-color: rgb(18, 70, 212);
@@ -41,12 +61,27 @@ body {
 }
 
 .puszka { 
-    transition: 0.3s;
+z-index: 5;
+/* border: 5px solid white; */
+transition: 0.3s;
 }
 
 .can:hover > .puszka {
     transform:translateX(175px);
 
+}
+
+.can:hover > .test {
+    z-index: -1;
+    transform:translateX(-15px) scaleX(1.05) scaleY(1.02);
+
+}
+
+.test {
+    background: linear-gradient(to top, white, white), no-repeat top center;
+    position: absolute;
+    transform:translateX(-200px) scaleX(1.05) scaleY(1.02);
+    
 }
 
 .text {
